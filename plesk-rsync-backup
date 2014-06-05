@@ -1,0 +1,13 @@
+#!/bin/sh
+
+srv="srv1 srv2 srv3 srv4 srv5"
+destino=/mnt/backup/
+
+for i in $srv;
+do
+
+fechaRemota=`ssh -t $i < ./fecha.sh`
+
+rsync --log-file=log.backupquincenal -avze ssh $i:'`for i in \`ls /var/lib/psa/dumps/clients/\` ;do ls -rt /var/lib/psa/dumps/clients/$i/domains/*/*tgz 2>/dev/null | grep -v logs | grep \`cat /var/tmp/.fecha\` ;done`' $destino$i/
+
+done
