@@ -1,6 +1,8 @@
 #!/bin/sh
-
+#servidores a los que realizaremos backup
 srv="srv1 srv2 srv3 srv4 srv5"
+
+# directorio montado con sshfs Nas remoto
 destino=/mnt/backup/
 
 for i in $srv;
