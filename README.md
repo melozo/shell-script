@@ -1,3 +1,3 @@
-Algunos Scripts
+Scripts
 ===============
 
